@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "INF_SEN01-1_Assignment_Interpreter", "INF_SEN01-1_Assignment_Interpreter\INF_SEN01-1_Assignment_Interpreter.fsproj", "{60A02812-B4AC-4A47-92BA-710E302E1F76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A02812-B4AC-4A47-92BA-710E302E1F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A02812-B4AC-4A47-92BA-710E302E1F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A02812-B4AC-4A47-92BA-710E302E1F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A02812-B4AC-4A47-92BA-710E302E1F76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
