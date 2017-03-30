@@ -1,14 +1,17 @@
 ﻿module Syntax
 
-type Types =
-    | Int of int
-    | Float of float
-    | Double of double
-    | String of string
-    | Boolean of bool
+type ValueType =
+    | IntegerType of int
+    | FloatType of float
+    | DoubleType of double
+    | StringType of string
+    | BooleanType of bool
 
 type Expression =
-    | Sum of Expression * Expression
+    | Value of ValueType
+    | Add of Expression * Expression
     | Subtract of Expression * Expression
     | Divide of Expression * Expression
     | Multiply of Expression * Expression
+
+let Integer x = Value(IntegerType x);
