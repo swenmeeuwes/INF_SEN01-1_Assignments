@@ -1,12 +1,18 @@
 ﻿open Syntax
 open Interpreter
 
-let someNumber = Integer 2
-let anotherNumber = Integer 3
+let someNumber = Float 3.0
+let anotherNumber = Integer 2
 
-//let result = eval (Add (Value(someNumber), Value(anotherNumber)))
-let result = eval (Add (Subtract (someNumber, anotherNumber), Subtract (someNumber, anotherNumber)))
-// Wish: Add someNumber anotherNumber
+//let commands = Add (Subtract (someNumber, anotherNumber), Subtract (someNumber, anotherNumber))
+let commands = Subtract(someNumber, anotherNumber)
+
+let result = 
+    try 
+        eval commands
+    with
+    | Exception(str) -> StringType(str)
+
 
 [<EntryPoint>]
 let main argv = 
