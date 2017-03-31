@@ -15,3 +15,7 @@ type Expression =
     | Multiply of Expression * Expression
 
 let Integer x = Value(IntegerType x);
+let Float x = Value(FloatType x);
+let Double x = Value(DoubleType x);
+let String x = Value(StringType x);
+let Boolean x = Value(BooleanType x);
