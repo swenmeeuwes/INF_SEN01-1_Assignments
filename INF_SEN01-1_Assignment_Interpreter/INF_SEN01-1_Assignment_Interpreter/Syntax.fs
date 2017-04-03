@@ -25,6 +25,12 @@ type Expression =
     | Or of Expression * Expression
     | Not of Expression
 
+type Statement =
+    | Printf of Expression
+    | If of Expression * Statement
+    | IfElse of Expression * Statement * Statement
+    | Block of Statement list
+
 let Integer x = Value(IntegerType x);
 let Float x = Value(FloatType x);
 let Double x = Value(DoubleType x);
