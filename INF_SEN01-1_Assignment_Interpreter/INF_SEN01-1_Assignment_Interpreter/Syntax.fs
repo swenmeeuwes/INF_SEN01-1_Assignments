@@ -9,10 +9,21 @@ type ValueType =
 
 type Expression =
     | Value of ValueType
+
+    // Binary operators
     | Add of Expression * Expression
     | Subtract of Expression * Expression
     | Divide of Expression * Expression
     | Multiply of Expression * Expression
+    | Modulo of Expression * Expression
+
+    // Logical operators
+    | GreaterThan of Expression * Expression
+    | LessThan of Expression * Expression
+    | Equals of Expression * Expression
+    | And of Expression * Expression
+    | Or of Expression * Expression
+    | Not of Expression
 
 let Integer x = Value(IntegerType x);
 let Float x = Value(FloatType x);
