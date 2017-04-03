@@ -1,5 +1,7 @@
-﻿open Syntax
+﻿open ModuleLoader
+open Syntax
 open Interpreter
+open Parser
 
 let someNumber = Float 3.0
 let anotherNumber = Float 2.0
@@ -14,6 +16,12 @@ let result =
     with
     | Exception(str) -> StringType(str)
 
+// TO BE CONTINUED
+//let tokens =
+//    interpretModule "SampleProgram.kobra" [|' '|]
+
+//let result =
+//    Seq.map parseToken tokens
 
 [<EntryPoint>]
 let main argv = 
