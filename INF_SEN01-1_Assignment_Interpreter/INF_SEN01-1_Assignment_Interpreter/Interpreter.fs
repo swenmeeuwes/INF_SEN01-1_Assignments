@@ -98,15 +98,22 @@ let rec evaluateExpression expression =
             | _                                 -> raise (Exception "Cannot execute logical check 'Not', incompatible type.")
         ) (evaluateExpression x)
 
-let evaluateStatement statement =
+let rec evaluateStatement statement =
     match statement with
     | Printf expression ->
-        (fun expr ->
-            printfn "%A" expr
+        (fun expression ->
+            printfn "%A" expression
         ) (evaluateExpression expression)
-    //| If (expression, statement) ->
-    //    (fun expr ->
-    //        match expr with
-    //        | BooleanType n1                    -> if(n1 = BooleanType(true)) then (evaluateStatement statement)
-    //    ) (evaluateExpression expression)
-    //| _                                 -> raise (Exception "Cannot execute logical check 'Not', incompatible type.")
+    | If (expression, statement) ->
+        (fun expression ->
+            match expression with
+            | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statement)
+            | _                                 -> raise (Exception "Given expression is not of type Boolean.")
+        ) (evaluateExpression expression)
+    | IfElse (expression, statementIf, statementElse) ->
+        (fun expression ->
+            match expression with
+            | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statementIf) else (evaluateStatement statementElse)
+            | _                                 -> raise (Exception "Given expression is not of type Boolean.")
+        ) (evaluateExpression expression)
+            
