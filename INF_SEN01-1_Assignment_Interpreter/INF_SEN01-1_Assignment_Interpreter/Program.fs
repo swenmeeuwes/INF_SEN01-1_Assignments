@@ -27,6 +27,14 @@ let moduleDeclareHelloWorld = {
     ]
 }
 
+let moduleIterative = {
+    variables = Map.empty
+    statements = [
+        Declaration ("counter", (Integer 1))
+        While(LessThan(Variable "counter", Integer 10), Block([Printfn(Variable "counter"); Declaration("counter", Add(Variable "counter", Integer 1))]))
+    ]
+}
+
 let moduleExtremelyDifficultComputation = {
     variables = Map.empty
     statements = [
@@ -42,7 +50,7 @@ let moduleExtremelyDifficultComputation = {
 [<EntryPoint>]
 let main argv = 
     try
-        do evaluate moduleExtremelyDifficultComputation
+        do evaluate moduleIterative
         0 // Exit correctly
     with
     | Interpreter.Exception ex -> 

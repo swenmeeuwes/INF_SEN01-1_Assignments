@@ -129,12 +129,15 @@ let rec evaluateStatement variables statement : Map<string, ValueType> =
             do printfn "%A" expression
             variables
         ) (evaluateExpression variables expression)
-    //| While (expression, block) ->
-    //    (fun expression ->
-    //        match expression with
-    //        | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statement)
-    //        | _                                 -> raise (Exception "Given Expression is not of type Boolean.") 
-    //    )(evaluateExpression expression)
+    | While (expression, block) ->
+        (fun expression ->
+            match expression with
+            | BooleanType n1                    -> if(n1 = true) then (
+                                                        let newVariables = evaluateStatement variables block 
+                                                        evaluateStatement newVariables statement) 
+                                                   else variables
+            | _                                 -> raise (Exception "Given Expression is not of type Boolean.") 
+        )(evaluateExpression variables expression)
 
 // Evaluate module
 let evaluate (kobraModule: KobraModule) =
