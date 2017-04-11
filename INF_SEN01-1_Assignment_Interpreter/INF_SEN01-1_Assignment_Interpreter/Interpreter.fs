@@ -77,6 +77,7 @@ let rec evaluateExpression expression =
             | IntegerType n1, IntegerType n2    -> BooleanType (n1 = n2)
             | FloatType n1, FloatType n2        -> BooleanType (n1 = n2)
             | DoubleType n1, DoubleType n2      -> BooleanType (n1 = n2)
+            | BooleanType n1, BooleanType n2    -> BooleanType (n1 = n2)
             | _                                 -> raise (Exception "Cannot execute logical check 'Equals', incompatible types.")
         ) (evaluateExpression left) (evaluateExpression right)
     | Or (left, right) ->
