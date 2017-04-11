@@ -16,6 +16,7 @@ type ValueType =
 
 type Expression =
     | Value of ValueType
+    | Variable of string
 
     // Binary operators
     | Add of Expression * Expression
@@ -33,11 +34,12 @@ type Expression =
     | Not of Expression
 
 type Statement =
-    | Printfn of Expression
+    | Block of Statement list
     | If of Expression * Statement
     | IfElse of Expression * Statement * Statement
-    | Block of Statement list
     | While of Expression * Statement
+    | Declaration of string * Expression
+    | Printfn of Expression
 
 // Module record to act as a wrapper, which contains variables and statements
 type KobraModule = {

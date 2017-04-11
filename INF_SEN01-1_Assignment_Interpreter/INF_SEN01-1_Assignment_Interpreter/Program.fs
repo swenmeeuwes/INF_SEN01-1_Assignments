@@ -17,14 +17,23 @@ let moduleConditionalHelloWorld = {
         IfElse(Equals(Float 3.2, Float 8.1), Printfn (String "Hello world!"), Printfn(String "Bye world!"))
     ]
 }
+
+let moduleDeclareHelloWorld = {
+    variables = Map.empty
+    statements = [
+        Declaration ("someVariable", (String "Hello world!"))
+        Printfn (Variable "someVariable")
+        Printfn (String "Done!")
+    ]
+}
 // End of sample Kobra modules
 
 [<EntryPoint>]
 let main argv = 
     try
-        do evaluate moduleConditionalHelloWorld
-        0
+        do evaluate moduleDeclareHelloWorld
+        0 // Exit correctly
     with
-    | Exception ex -> 
+    | Interpreter.Exception ex -> 
         do printfn "%A" ex
-        1
+        1 // Exit with exception
