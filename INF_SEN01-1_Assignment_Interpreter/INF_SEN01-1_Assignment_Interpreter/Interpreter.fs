@@ -117,5 +117,12 @@ let rec evaluateStatement statement =
             | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statementIf) else (evaluateStatement statementElse)
             | _                                 -> raise (Exception "Given expression is not of type Boolean.")
         ) (evaluateExpression expression)
-
-            
+    | Block (statementList) -> 
+        statementList |>
+            List.iter evaluateStatement
+    //| While (expression, block) ->
+    //    (fun expression ->
+    //        match expression with
+    //        | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statement)
+    //        | _                                 -> raise (Exception "Given Expression is not of type Boolean.") 
+    //    )(evaluateExpression expression)

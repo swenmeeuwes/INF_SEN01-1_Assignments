@@ -37,6 +37,7 @@ type Statement =
     | If of Expression * Statement
     | IfElse of Expression * Statement * Statement
     | Block of Statement list
+    | While of Expression * Statement
 
 let Integer x = Value(IntegerType x);
 let Float x = Value(FloatType x);
