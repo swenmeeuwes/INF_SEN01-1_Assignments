@@ -39,6 +39,12 @@ type Statement =
     | Block of Statement list
     | While of Expression * Statement
 
+// Module record to act as a wrapper, which contains variables and statements
+type Module = {
+    variables: Map<string, ValueType>
+    statement: Statement list
+}
+
 let Integer x = Value(IntegerType x);
 let Float x = Value(FloatType x);
 let Double x = Value(DoubleType x);
