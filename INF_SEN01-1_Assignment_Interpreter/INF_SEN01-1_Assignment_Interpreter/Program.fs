@@ -9,7 +9,7 @@ let anotherNumber = Float 2.0
 //let commands = Add (Subtract (someNumber, anotherNumber), Subtract (someNumber, anotherNumber))
 //let commands = GreaterThan(someNumber, anotherNumber)
 //let commands = Not (Equals(Add(Float 3.0, Float 3.0), Float 6.0))
-let commands = IfElse(Equals(Integer 3, Integer 4),  Printf(Add(Integer 3, Integer 3)), Printf(Multiply(Integer 3, Integer 3)))
+let commands = IfElse(Equals(Integer 3, Integer 4),  Printfn(Add(Integer 3, Integer 3)), Printfn(Multiply(Integer 3, Integer 3)))
 
 let result = 
     //try 

@@ -100,7 +100,7 @@ let rec evaluateExpression expression =
 
 let rec evaluateStatement statement =
     match statement with
-    | Printf expression ->
+    | Printfn expression ->
         (fun expression ->
             printfn "%A" expression
         ) (evaluateExpression expression)

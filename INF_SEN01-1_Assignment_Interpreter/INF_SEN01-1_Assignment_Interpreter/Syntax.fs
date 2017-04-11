@@ -26,7 +26,7 @@ type Expression =
     | Not of Expression
 
 type Statement =
-    | Printf of Expression
+    | Printfn of Expression
     | If of Expression * Statement
     | IfElse of Expression * Statement * Statement
     | Block of Statement list
