@@ -26,12 +26,23 @@ let moduleDeclareHelloWorld = {
         Printfn (String "Done!")
     ]
 }
+
+let moduleExtremelyDifficultComputation = {
+    variables = Map.empty
+    statements = [
+        Declaration ("x", (Integer 1))
+        Declaration ("y", (Integer 2))
+        Declaration ("result", Add ((Variable "x"), (Variable "y")))
+        Printfn (Variable "result")
+        Printfn (String "Done!")
+    ]
+}
 // End of sample Kobra modules
 
 [<EntryPoint>]
 let main argv = 
     try
-        do evaluate moduleDeclareHelloWorld
+        do evaluate moduleExtremelyDifficultComputation
         0 // Exit correctly
     with
     | Interpreter.Exception ex -> 
