@@ -33,5 +33,10 @@ let result =
 [<EntryPoint>]
 let main argv = 
     //printfn "%A" result
-
-    0 // return an integer exit code
+    try
+        do result
+        0
+    with
+    | Exception ex -> 
+        do printfn "%A" ex
+        1
