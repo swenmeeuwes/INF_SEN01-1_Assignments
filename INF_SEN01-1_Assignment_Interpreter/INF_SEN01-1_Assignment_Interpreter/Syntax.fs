@@ -1,5 +1,12 @@
 ﻿module Syntax
 
+//let TrueType = fun t f -> t
+//let FalseType = fun t f -> f
+
+//type BooleanType =
+//    | TrueType
+//    | FalseType
+
 type ValueType =
     | IntegerType of int
     | FloatType of float
