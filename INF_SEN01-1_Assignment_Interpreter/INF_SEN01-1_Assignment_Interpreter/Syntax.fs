@@ -40,9 +40,9 @@ type Statement =
     | While of Expression * Statement
 
 // Module record to act as a wrapper, which contains variables and statements
-type Module = {
+type KobraModule = {
     variables: Map<string, ValueType>
-    statement: Statement list
+    statements: Statement list
 }
 
 let Integer x = Value(IntegerType x);

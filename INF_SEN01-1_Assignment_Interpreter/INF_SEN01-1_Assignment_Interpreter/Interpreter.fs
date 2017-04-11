@@ -8,7 +8,7 @@ exception Exception of string
 // Helpers
 let floatToInt subject = int(System.Math.Round(subject: float))
 
-// evaluate expression
+// Evaluate expression
 let rec evaluateExpression expression =
     match expression with
     | Value v -> v
@@ -99,6 +99,7 @@ let rec evaluateExpression expression =
             | _                                 -> raise (Exception "Cannot execute logical check 'Not', incompatible type.")
         ) (evaluateExpression x)
 
+// Evaluate statement
 let rec evaluateStatement statement =
     match statement with
     | Printfn expression ->
@@ -126,3 +127,8 @@ let rec evaluateStatement statement =
     //        | BooleanType n1                    -> if(n1 = true) then (evaluateStatement statement)
     //        | _                                 -> raise (Exception "Given Expression is not of type Boolean.") 
     //    )(evaluateExpression expression)
+
+// Evaluate module
+let evaluate (kobraModule: KobraModule) =
+    kobraModule.statements |>
+    List.iter evaluateStatement
