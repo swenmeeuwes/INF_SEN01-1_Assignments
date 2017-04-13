@@ -1,7 +1,5 @@
-﻿open ModuleLoader
-open Syntax
+﻿open Syntax
 open Interpreter
-open Parser
 
 // Sample Kobra (the "Python like language") modules
 let moduleHelloWorld = {
