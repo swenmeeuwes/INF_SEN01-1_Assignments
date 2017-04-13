@@ -28,7 +28,7 @@ let moduleDeclareHelloWorld = {
 let moduleIterative = {
     variables = Map.empty
     statements = [
-        Declaration ("counter", (Integer 1))
+        Declaration ("counter", (Integer 0))
         While(LessThan(Variable "counter", Integer 10), Block([Printfn(Variable "counter"); Declaration("counter", Add(Variable "counter", Integer 1))]))
     ]
 }
@@ -43,12 +43,26 @@ let moduleExtremelyDifficultComputation = {
         Printfn (String "Done!")
     ]
 }
+
+let moduleTableOf2 = {
+    variables = Map.empty
+    statements = [
+        Printfn(String "Computing the table of 2")
+        Declaration("i", (Integer 1))
+        Declaration("max", (Integer 10))
+        While(Or(LessThan(Variable "i", Variable "max"), Equals(Variable "i", Variable "max")), Block([
+            Printfn(Multiply(Variable "i", Integer 2))
+            Declaration("i", Add(Variable "i", Integer 1))
+        ]))
+        Printfn(String "Done!")
+    ]
+}
 // End of sample Kobra modules
 
 [<EntryPoint>]
 let main argv = 
     try
-        do evaluate moduleIterative
+        do evaluate moduleTableOf2
         0 // Exit correctly
     with
     | Interpreter.Exception ex -> 
